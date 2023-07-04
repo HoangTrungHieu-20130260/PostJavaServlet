@@ -1,9 +1,9 @@
-package vn.edu.hcmuaf.fit.Database;
+package Database;
 
 import java.sql.*;
 
 public class DBConnect {
-    private String url = "jdbc:mysql://localhost:3306/shopkeyfinal";
+    private String url = "jdbc:mysql://localhost:3306/post";
     private String user = "root";
     private String pass = "";
     Connection connection;

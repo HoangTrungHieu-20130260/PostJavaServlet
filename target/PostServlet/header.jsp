@@ -12,7 +12,7 @@
       <div class="navbar-header ">
         <a class="navbar-brand" href="index.jsp">Trang chủ</a>
         <a class="navbar-brand" href="post.jsp">Trang người dùng</a>
-        <a class="navbar-brand" href="#">Đăng Nhập</a>
+        <a class="navbar-brand" href="login.jsp">Đăng Nhập</a>
         <a class="navbar-brand" href="#">Admin</a>
       </div>
   </nav>
