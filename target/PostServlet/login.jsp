@@ -1,6 +1,6 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,19 +21,24 @@
 </head>
 <body>
 <c:import url="header.jsp"></c:import>
+
 <div class="container d-flex justify-content-center">
     <div class="login" style="width: 400px;">
         <h1 class="text-center">Đăng Nhập</h1>
-        <form>
+        ${notify}
+        <form action="signInController" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                       placeholder="Enter email">
+                <input type="email" class="form-control"
+                       id="exampleInputEmail1"
+                       aria-describedby="emailHelp"
+                       placeholder="Enter email" name="username">
                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Mật Khẩu</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật Khẩu">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật Khẩu"
+                name="password">
             </div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
