@@ -11,6 +11,16 @@
     <title>Register</title>
 
     <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background: #fff;
+        }
+        .container {
+            font-size: 16px;
+            margin-top: 50px;
+
+        }
         .login {
             background-color: #FFF;
             border-radius: 5px;
@@ -24,20 +34,24 @@
 <div class="container d-flex justify-content-center">
     <div class="login" style="width: 400px;">
         <h1 class="text-center">Đăng Ký</h1>
-        <form>
+        ${notify}
+        <form action="registerController" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                       placeholder="Enter email">
+                       placeholder="Enter email"
+                        name="username">
                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Mật Khẩu</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật Khẩu">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật Khẩu"
+                name="password">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Nhập Lại Mật Khẩu</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập Lại Mật Khẩu">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập Lại Mật Khẩu"
+                name="re-password">
             </div>
             <div class="d-flex justify-content-center mb-4">
                 <button type="submit" class="btn btn-primary">Đăng Ký</button>

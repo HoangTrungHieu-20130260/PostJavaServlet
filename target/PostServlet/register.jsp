@@ -11,6 +11,16 @@
     <title>Register</title>
 
     <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background: #fff;
+        }
+        .container {
+            font-size: 16px;
+            margin-top: 50px;
+
+        }
         .login {
             background-color: #FFF;
             border-radius: 5px;

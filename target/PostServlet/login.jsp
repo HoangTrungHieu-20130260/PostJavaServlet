@@ -11,6 +11,16 @@
     <title>Login</title>
 
     <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background: #fff;
+        }
+        .container {
+            font-size: 16px;
+            margin-top: 50px;
+
+        }
         .login {
             background-color: #FFF;
             border-radius: 5px;
@@ -26,7 +36,7 @@
     <div class="login" style="width: 400px;">
         <h1 class="text-center">Đăng Nhập</h1>
         ${notify}
-        <form action="signInController" method="post">
+        <form action="loginController" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
                 <input type="email" class="form-control"
