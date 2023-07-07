@@ -128,11 +128,11 @@ public class PostDAO implements IPostDAO {
 		try {
 			conn = statement.getConnection();
 			preparedStatement = conn.prepareStatement(query);
-			preparedStatement.setInt(1, idPost);
+			preparedStatement.setInt(1,idPost);
 			resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
-				String title = resultSet.getString("title");
                 int id_post = resultSet.getInt("id_post");
+				String title = resultSet.getString("title");
                 String content = resultSet.getString("content");
                 int id_user = resultSet.getInt("id_account");
                 String userName = resultSet.getString("name");

@@ -59,14 +59,13 @@
         <div class="col-sm-8">
             <div class="card-body">
                 <div class="row">
-               
+                    <c:set var="user" value="${sessionScope.user}"></c:set>
            <%   PostService ps = new PostService(); 
                 List<PostModel> posts = ps.getPost();
                 for (PostModel pm : posts)
                   {%>
                   <div class="col-sm-12 form-group">
-                            <a class="forget-password" href="updatePost.jsp">Chỉnh sửa bài viết</a>
-                            <a href="#" class="link-admin">Xóa</a>
+
                             <br>
                             <label style="font-weight: bold;"><%=pm.getTitle() %> </label>
                             <h6></h6>
@@ -75,17 +74,7 @@
                             <h5 style="font-style: italic;"><%=pm.getUserName() %></h5>
                         </div>
                   <%} %>
-           <%--      <c:forEach var="post" items="${postList}">
-                        <div class="col-sm-12 form-group">
-                            <a class="forget-password" href="updatePost.jsp">Chỉnh sửa bài viết</a>
-                            <a href="#" class="link-admin">Xóa</a>
-                            <br>
-                            <label style="font-weight: bold;">${post.title} </label>
-                            <h6></h6>
-                            <h5 style="font-style: italic;">${post.id_user}</h5>
-                            <h5 style="font-style: italic;">${post.date}</h5>
-                        </div>
-              </c:forEach> --%>
+
 
 
                 </div>

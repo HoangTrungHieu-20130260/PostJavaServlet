@@ -1,9 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"  %>
+<%@ page import="model.PostModel" %>
+<%@ page import="service.impls.PostService" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,9 +26,7 @@
             }
         }
 
-        @-ms-viewport {
-            width: device-width;
-        }
+
 
         .col-sm-12 {
             background-color: #FFF;
@@ -60,44 +59,25 @@
         <div class="col-sm-8">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm-12 form-group">
-                        <a class="forget-password" href="updatePost.jsp">chỉnh sửa bài viết</a>
-                        <a href="#" class="link-admin"> Xóa</a>
-                        <br>
-                        <label style="font-weight: bold;">Tiltle</label>
-                        <h6> nội dung
-                            Screen readers will have trouble with your forms if you don't include a label for every
-                            input. For these inline forms, you can hide the labels using the .sr-only class. There are
-                            further alternative methods of providing a label for assistive technologies, such as the
-                            aria-label, aria-labelledby or title attribute. If none of these is present, screen readers
-                            may resort to using the placeholder attribute, if present, but note that use of placeholder
-                            as a replacement for other labelling methods is not advised.
-                            nội dung Screen readers will have trouble with your forms if you don't include a label for
-                            every input. For these inline forms, you can hide the labels using the .sr-only class. There
-                            are further alternative methods of providing a label for assistive technologies, such as the
-                            aria-label, aria-labelledby or title attribute. If none of these is present, screen readers
-                            may resort to using the placeholder attribute, if present, but note that use of placeholder
-                            as a replacement for other labelling methods is not advised.
-                        </h6>
-                        <h5 style="font-style:italic"> Tên người dùng</h5>
-                        <h5 style="font-style:italic"> 22/12/2023</h5>
-                    </div>
+                    <c:set var="user" value="${sessionScope.user}"></c:set>
+           <%   PostService ps = new PostService(); 
+                List<PostModel> posts = ps.getPost();
+                for (PostModel pm : posts)
+                  {%>
+                  <div class="col-sm-12 form-group">
+
+                            <br>
+                            <label style="font-weight: bold;"><%=pm.getTitle() %> </label>
+                            <h6></h6>
+                            <h5 style="font-style: italic;"><%=pm.getContent() %></h5>
+                            <h5 style="font-style: italic;"><%=pm.getDate()%></h5>
+                            <h5 style="font-style: italic;"><%=pm.getUserName() %></h5>
+                        </div>
+                  <%} %>
+
+
+
                 </div>
-
-
-                <!-- <div class="row">
-                    <div class="col-sm-12 form-group">
-                        <a class="forget-password" href="#">chỉnh sửa bài viết</a>
-                        <a href="#" class="link-admin"> Xóa</a>
-                        <br>
-                        <label>Tiltle</label>
-                        <h4> nội dung
-                            Screen readers will have trouble with your forms if you don't include a label for every input. For these inline forms, you can hide the labels using the .sr-only class. There are further alternative methods of providing a label for assistive technologies, such as the aria-label, aria-labelledby or title attribute. If none of these is present, screen readers may resort to using the placeholder attribute, if present, but note that use of placeholder as a replacement for other labelling methods is not advised.
-                            nội dung Screen readers will have trouble with your forms if you don't include a label for every input. For these inline forms, you can hide the labels using the .sr-only class. There are further alternative methods of providing a label for assistive technologies, such as the aria-label, aria-labelledby or title attribute. If none of these is present, screen readers may resort to using the placeholder attribute, if present, but note that use of placeholder as a replacement for other labelling methods is not advised.
-                        </h4>
-
-                    </div>
-                </div> -->
                 <div>
 
                 </div>
@@ -106,8 +86,6 @@
         </div>
 
         <!-------------------------- end post --------------------------------------------->
-
-
     </div>
 </div>
 

@@ -58,15 +58,15 @@
         <div class="col-sm-6">
             <div class="card-body">
                 <div class="row">
-                <c:forEach var="postIT" items="${post}">
+                <c:forEach var="post1" items="${post}">
                  <div class="col-sm-12 form-group">
-                        <a class="forget-password" href="updatePost?idPost=${postIT.idPost}">chỉnh sửa bài viết</a>
-                        <a href="deletePost?idPost=${postIT.idPost}" class="link-admin"> Xóa</a>
+                        <a class="forget-password" href="updatePost?idPost=${post1.idPost}">chỉnh sửa bài viết</a>
+                        <a href="deletePost?idPost=${post1.idPost}" class="link-admin"> Xóa</a>
                         <br>
-                        <label style="font-weight: bold;">${postIT.title}</label>
-                        <h6>${postIT.content}</h6>
-                        <h5 style="font-style:italic">${postIT.date}</h5>
-                        <h5 style="font-style:italic">${postIT.id_user}</h5>
+                        <label style="font-weight: bold;">${post1.title}</label>
+                        <h6>${post1.content}</h6>
+                        <h5 style="font-style:italic">${post1.date}</h5>
+                        <h5 style="font-style:italic">${post1.id_user}</h5>
                     </div>
                 </c:forEach>
                    

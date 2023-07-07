@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.PostModel;
+import model.User;
 import service.impls.PostService;
 
 @WebServlet("/updatePost")
@@ -24,6 +26,7 @@ public class UpdateController extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 	    int id = Integer.parseInt(request.getParameter("idPost"));
+		System.out.println("idposst------------------"+id);
 		PostService postService = new PostService();
 		PostModel post = postService.getPostByIdPost(id);
 		request.setAttribute("post", post);

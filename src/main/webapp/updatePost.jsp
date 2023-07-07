@@ -71,9 +71,10 @@ body {
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card-body">
+					<c:set var="user" value="${sessionScope.user}"></c:set>
 					<form action="updatePost" method="post">
-						<input type="hidden" value="2" name="id_user">
-						<input type="hidden" value="${post.idPost }" name="id_post">
+						<input type="hidden" value="${user.getId()}" name="id_user">
+						<input type="hidden" value="${post.idPost}" name="id_post">
 						<div class="row">
 							<div class="col-sm-12 form-group">
 								<label>Tiêu đề</label>

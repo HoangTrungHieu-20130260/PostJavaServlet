@@ -6,7 +6,7 @@
 </head>
 <body>
 <div>
-  <nav class="navbar navbar-default navbar-fixed-top" style="position: fixed;">
+  <nav class="navbar navbar-default navbar-fixed-top bg-dark fixed-top" style="position: fixed;">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header ">
@@ -19,7 +19,8 @@
             <a class="navbar-brand" href="logoutController">Đăng Xuất</a>
           </c:when>
           <c:when test="${user.getRoles() == 1}">
-            <a class="navbar-brand" href="post.jsp">Trang người dùng</a>
+            <a class="navbar-brand" href="post?id_user=${user.getId()}">${user.getUsername()}</a>
+            <a class="navbar-brand" href="addPost">Thêm Bài Viết</a>
             <a class="navbar-brand" href="logoutController">Đăng Xuất</a>
           </c:when>
           <c:otherwise>
