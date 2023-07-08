@@ -3,9 +3,9 @@ package Database;
 import java.sql.*;
 
 public class DBConnect {
-	private String url = "jdbc:mysql://localhost:3306/blogweb?characterEncoding=UTF-8";
+	private String url = "jdbc:mysql://localhost:3306/blogweb";
     private String user = "root";
-    private String pass = "0385170019";
+    private String pass = "";
     Connection connection;
      private  static DBConnect install;
 
