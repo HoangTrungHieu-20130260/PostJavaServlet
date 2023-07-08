@@ -2,12 +2,13 @@ package controller;
 
 import model.User;
 import service.IUserService;
-import service.UserServiceImp;
+import service.impls.UserServiceImp;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Random;
 
 @WebServlet(name = "LoginController", value = "/loginController")
 public class LoginController extends HttpServlet {
@@ -26,7 +27,7 @@ public class LoginController extends HttpServlet {
                     "  Tài khoản hoặc mật khẩu không đúng!\n" +
                     "</div>");
             request.getRequestDispatcher("login.jsp").forward(request,response);
-        } else if (user.getStatus().equals("bị khóa")){
+        } else if (user.getStatus().equals("disable")){
             request.setAttribute("notify", "<div class=\"alert alert-danger\" role=\"alert\">\n" +
                     "  Tài khoản đã bị khóa!\n" +
                     "</div>");
