@@ -28,6 +28,7 @@ public class CheckCodeRegister extends HttpServlet {
             request.getRequestDispatcher("checkcoderegister.jsp").forward(request,response);
         } else {
             userService.register(register.getUsername(),register.getPassword());
+            request.getSession().setAttribute("register", null);
             request.setAttribute("notify", "<div class=\"alert alert-success\" role=\"alert\">\n" +
                     "  Đăng ký thành công, đăng nhập để tiếp tục!\n" +
                     "</div>");

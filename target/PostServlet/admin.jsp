@@ -38,30 +38,56 @@
 <body>
 <c:import url="header.jsp"></c:import>
 <div class="container d-flex flex-column align-items-center  mt-5">
-    <div class="user">
-        <div class="row">
-            <div class="col-10">
-                <p>Email: 213@gmail.com</p>
-                <p>Trạng Thái: <span class="text-success">Bình Thường</span></p>
-            </div>
-            <div class="col-2 d-flex justify-content-around align-items-center">
-                <i class="fa-solid fa-lock"></i>
-                <i class="fa-solid fa-trash"></i>
+    <c:forEach var="userList" items="${userList}">
+        <div class="user">
+            <div class="row">
+                <div class="col-10">
+                    <p>${userList.getUsername()}</p>
+                    <p>Trạng Thái:
+                        <c:if test="${userList.getStatus() eq 'enable'}">
+                            <span class="text-success">${userList.getStatus()}</span>
+                        </c:if>
+                        <c:if test="${userList.getStatus() eq 'disable'}">
+                            <span class="text-danger">${userList.getStatus()}</span>
+                        </c:if>
+                    </p>
+                    <p>Chức vụ:
+                        <c:if test="${userList.getRoles() eq 1}">
+                            Admin
+                        </c:if>
+                        <c:if test="${userList.getRoles() eq 2}">
+                            User
+                        </c:if>
+                    </p>
+                </div>
+                <div class="col-2 d-flex justify-content-around align-items-center">
+                    <div class="col-2 d-flex justify-content-around align-items-center">
+                        <c:choose>
+                            <c:when test="${userList.getStatus() eq 'enable'}">
+                                <a href="changeStatus?username=${userList.getUsername()}"><i class="fa-solid fa-lock"></i></a>
+                                <a href=""><i class="fa-solid fa-trash"></i></a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="changeStatus?username=${userList.getUsername()}"><i class="fa-solid fa-lock-open"></i></a>
+                                <a href=""><i class="fa-solid fa-trash"></i></a>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="user">
-        <div class="row">
-            <div class="col-10">
-                <p>Email: 213@gmail.com</p>
-                <p>Trạng Thái: <span class="text-danger">Bị Khóa</span></p>
-            </div>
-            <div class="col-2 d-flex justify-content-around align-items-center">
-                <i class="fa-solid fa-lock-open"></i>
-                <i class="fa-solid fa-trash"></i>
-            </div>
-        </div>
-    </div>
+    </c:forEach>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
         <c:set var="user" value="${sessionScope.user}"></c:set>
         <c:choose>
           <c:when test="${user.getRoles() == 1}">
-            <a class="navbar-brand" href="admin.jsp">Admin</a>
+            <a class="navbar-brand" href="getAllUser">Admin</a>
             <a class="navbar-brand" href="post?id_user=${user.getId()}">${user.getUsername()}</a>
             <a class="navbar-brand" href="addPost">Thêm Bài Viết</a>
             <a class="navbar-brand" href="logoutController">Đăng Xuất</a>

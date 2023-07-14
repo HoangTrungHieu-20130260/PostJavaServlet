@@ -18,36 +18,36 @@ import service.impls.PostService;
 
 @WebServlet("/addPost")
 public class AddPostController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-  
+    private static final long serialVersionUID = 1L;
+
+
     public AddPostController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("addPost.jsp");
-		rd.forward(request, response);
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher rd = request.getRequestDispatcher("addPost.jsp");
+        rd.forward(request, response);
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
-		//PostModel post = new PostModel();
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		String id_user = request.getParameter("id_user");
-		String name_user = request.getParameter("user_name");
-			int id = Integer.parseInt(id_user);
-			System.out.println("==========================>"+id);
-			System.out.println("==========================>"+title);
-			System.out.println("==========================>"+content);
-			PostService posts = new PostService();
-			PostModel post = new PostModel(0, id, title, content, null, name_user);
-			posts.addPost(post);
-response.sendRedirect("index.jsp");
-		
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        //PostModel post = new PostModel();
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        String id_user = request.getParameter("id_user");
+        String name_user = request.getParameter("user_name");
+        int id = Integer.parseInt(id_user);
+        System.out.println("==========================>" + id);
+        System.out.println("==========================>" + title);
+        System.out.println("==========================>" + content);
+        PostService posts = new PostService();
+        PostModel post = new PostModel(0, id, title, content, null, name_user);
+        posts.addPost(post);
+        response.sendRedirect("index.jsp");
+
+    }
 
 }

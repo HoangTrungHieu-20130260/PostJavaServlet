@@ -64,7 +64,8 @@
         <div class="col-sm-12">
             <div class="card-body">
                 <form action="addPost" method="post">
-                    <input type="hidden" value="2" name="id_user">
+                    <c:set var="user" value="${user}"/>
+                    <input type="hidden" value="${user.getId()}" name="id_user">
                   <%--  <% LocalDate currentDate = LocalDate.now(); %>
             <input type="hidden" value="<%= currentDate.toString() %>" name="date"> --%>
                     <div class="row">

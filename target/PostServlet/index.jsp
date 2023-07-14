@@ -69,7 +69,7 @@
                             <br>
                             <label style="font-weight: bold;"><%=pm.getTitle() %> </label>
                             <h6></h6>
-                            <h5 style="font-style: italic;"><%=pm.getContent() %></h5>
+                            <h5 style="font-style: italic; font-size: 14px"><%=pm.getContent() %></h5>
                             <h5 style="font-style: italic;"><%=pm.getDate()%></h5>
                             <h5 style="font-style: italic;"><%=pm.getUserName() %></h5>
                         </div>
