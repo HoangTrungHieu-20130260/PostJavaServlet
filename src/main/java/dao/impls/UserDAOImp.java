@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 public class UserDAOImp implements IUserDAO {
@@ -110,6 +112,42 @@ public class UserDAOImp implements IUserDAO {
             Transport.send(message);
 
         } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<User> userList(String username) {
+        List<User> userList = new ArrayList<>();
+        String query = "SELECT * FROM `account` WHERE username NOT LIKE ?";
+        statement = DBConnect.getInstall().get();
+        try {
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, username);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                userList.add(new User(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getInt(4),
+                        resultSet.getString(5)));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return userList;
+    }
+
+    @Override
+    public void changeStatus(String username, String status) {
+        String query = "UPDATE account SET status = ? WHERE username = ?;";
+        statement = DBConnect.getInstall().get();
+        try {
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, status);
+            preparedStatement.setString(2, username);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

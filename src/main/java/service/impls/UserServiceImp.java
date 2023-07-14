@@ -5,6 +5,8 @@ import model.Register;
 import model.User;
 import service.IUserService;
 
+import java.util.List;
+
 public class UserServiceImp implements IUserService {
     @Override
     public User signIn(String username, String password) {
@@ -24,5 +26,14 @@ public class UserServiceImp implements IUserService {
     @Override
     public void sendMail(Register register) {
         new UserDAOImp().sendMail(register);
+    }
+    @Override
+    public List<User> userList(String username) {
+        return new UserDAOImp().userList(username);
+    }
+
+    @Override
+    public void changeStatus(String username, String status) {
+        new UserDAOImp().changeStatus(username, status);
     }
 }
