@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.PostModel;
+import model.User;
 import service.impls.PostService;
 
 @WebServlet("/deletePost")
@@ -24,6 +25,8 @@ public class DeleteController extends HttpServlet {
 		System.out.println("idposst------------"+id_Post);
 		PostModel post = new PostModel(id_Post, 0, null, null, null, null);
 		postSV.deletePost(post);
+		User user = (User) request.getSession().getAttribute("user");
+		response.sendRedirect("post?id_user="+user.getId());
 		
 	}
 

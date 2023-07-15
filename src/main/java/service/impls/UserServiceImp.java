@@ -36,4 +36,9 @@ public class UserServiceImp implements IUserService {
     public void changeStatus(String username, String status) {
         new UserDAOImp().changeStatus(username, status);
     }
+
+    @Override
+    public void deleteUser(int id) {
+        new UserDAOImp().deleteUser(id);
+    }
 }

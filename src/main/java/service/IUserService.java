@@ -12,4 +12,5 @@ public interface IUserService {
     void sendMail(Register register);
     List<User> userList(String username);
     void changeStatus(String username, String status);
+    void deleteUser(int id);
 }
