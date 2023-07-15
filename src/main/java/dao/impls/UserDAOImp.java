@@ -175,7 +175,6 @@ public class UserDAOImp implements IUserDAO {
             preparedStatement = statement.getConnection().prepareStatement(enableForeign);
             preparedStatement.executeUpdate();
             preparedStatement.close();
-            System.out.println("success");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
