@@ -65,11 +65,11 @@
                         <c:choose>
                             <c:when test="${userList.getStatus() eq 'enable'}">
                                 <a href="changeStatus?username=${userList.getUsername()}"><i class="fa-solid fa-lock"></i></a>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
+                                <a href="deleteUserController?id=${userList.getId()}"><i class="fa-solid fa-trash"></i></a>
                             </c:when>
                             <c:otherwise>
                                 <a href="changeStatus?username=${userList.getUsername()}"><i class="fa-solid fa-lock-open"></i></a>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
+                                <a href="deleteUserController?id=${userList.getId()}"><i class="fa-solid fa-trash"></i></a>
                             </c:otherwise>
                         </c:choose>
 

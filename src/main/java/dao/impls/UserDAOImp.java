@@ -93,8 +93,8 @@ public class UserDAOImp implements IUserDAO {
         String text = "<h1 style=\"padding: 0; font-size: 25px;color: #2dd100;font-family:sans-serif\">Mã đăng ký Blog Web</h1>" +
                 "<p style=\"padding: 0;font-size: 14px;color: #000000;font-family:sans-serif\">Mã OTP của bạn, hãy nhập OTP: <strong style=\"font-size: 18px; color: #2dd100; font-family:sans-serif\">" + register.getCode() + "</strong></p>" +
                 "<p style=\"padding: 0;font-size: 14px;color: #000000;font-family:sans-serif\">Cảm ơn bạn,</p><p style=\"padding: 0;font-size: 14px;color: #2dd100;font-family:sans-serif\">BlogWeb.</p>";
-        String account = "20130260@st.hcmuaf.edu.vn";
-        String pass = "askoaxjyhmtjjfkf";
+        String account = "hthclone01@gmail.com";
+        String pass = "cclrphrhungmhhbm";
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
@@ -150,6 +150,39 @@ public class UserDAOImp implements IUserDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        String disableForeign = "SET FOREIGN_KEY_CHECKS=0;";
+        String query = "DELETE `account`, `post`\n" +
+                "FROM account\n" +
+                "LEFT JOIN post ON account.id_account = post.id_account\n" +
+                "WHERE account.id_account = ?;";
+        String enableForeign =  "SET FOREIGN_KEY_CHECKS=1;";
+
+        statement = DBConnect.getInstall().get();
+        try {
+            preparedStatement = statement.getConnection().prepareStatement(disableForeign);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+            preparedStatement = statement.getConnection().prepareStatement(enableForeign);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            System.out.println("success");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void main(String[] args) {
+        new UserDAOImp().deleteUser(6);
     }
 
 }
