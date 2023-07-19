@@ -82,6 +82,7 @@ public class UserDAOImp implements IUserDAO {
 
     @Override
     public void sendMail(Register register) {
+//        Cấu hình properties
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
